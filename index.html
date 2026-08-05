@@ -25,7 +25,7 @@
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 4rem; background: transparent; transition: background 0.4s, backdrop-filter 0.4s; }
     nav.scrolled { background: rgba(13,13,13,0.92); backdrop-filter: blur(8px); }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); text-decoration: none; cursor: pointer; }
     .nav-logo span { color: var(--warm); }
     .nav-links { display: flex; gap: 2.4rem; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--mist); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.25s; }
@@ -182,10 +182,10 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
 <nav id="navbar">
-  <div class="nav-logo">BAVARO <span>·</span> Bistro</div>
+  <a href="#top" class="nav-logo">BAVARO <span>·</span> Bistro</a>
   <ul class="nav-links">
     <li><a href="#about">O nas</a></li>
     <li><a href="#menu">Menu</a></li>
