@@ -3,10 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BAVARO Bistro – Bydgoszcz</title>
+  <title>BAVARO Bistro Bydgoszcz – Pizza, dania obiadowe, pierogi | Ugory 23</title>
+  <meta name="description" content="BAVARO Bistro w Bydgoszczy (Ugory 23) – domowe dania obiadowe, zupy, pierogi i ponad 30 rodzajów pizzy na cienkim i grubym cieście. Otwarte pon.–sob. 12:00–21:00. Zamów lub odbierz na miejscu." />
+  <meta name="keywords" content="bistro Bydgoszcz, pizza Bydgoszcz, dania obiadowe Bydgoszcz, pierogi Bydgoszcz, restauracja Ugory, BAVARO Bistro" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="BAVARO Bistro" />
+  <link rel="icon" type="image/png" href="Logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="BAVARO Bistro Bydgoszcz – Pizza, dania obiadowe, pierogi" />
+  <meta property="og:description" content="Domowe dania obiadowe, zupy, pierogi i ponad 30 rodzajów pizzy w sercu Bydgoszczy. Ugory 23, otwarte pon.–sob. 12:00–21:00." />
+  <meta property="og:image" content="Logo.png" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:site_name" content="BAVARO Bistro" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BAVARO Bistro Bydgoszcz" />
+  <meta name="twitter:description" content="Domowe dania obiadowe, zupy, pierogi i ponad 30 rodzajów pizzy w sercu Bydgoszczy." />
+  <meta name="twitter:image" content="Logo.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "BAVARO Bistro",
+    "image": "Logo.png",
+    "servesCuisine": ["Polska", "Pizza", "Bistro"],
+    "priceRange": "16-30 PLN",
+    "telephone": ["+48725640743", "+48782959445"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ugory 23",
+      "addressLocality": "Bydgoszcz",
+      "addressCountry": "PL"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "12:00",
+        "closes": "21:00"
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -76,8 +122,9 @@
 
     /* FEATURED DISHES ROW */
     .featured-dishes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
-    .dish-card { background: var(--stone); overflow: hidden; border: 1px solid rgba(201,169,110,0.12); border-radius: 6px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+    .dish-card { background: var(--stone); overflow: hidden; border: 1px solid rgba(201,169,110,0.12); border-radius: 6px; cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
     .dish-card:hover { transform: translateY(-4px); border-color: rgba(201,169,110,0.35); box-shadow: 0 12px 28px rgba(0,0,0,0.35); }
+    .dish-card:focus-visible { outline: 2px solid var(--warm); outline-offset: 2px; }
     .dish-img-frame { width: 100%; height: 180px; overflow: hidden; background: var(--ash); position: relative; display: flex; align-items: center; justify-content: center; }
     .dish-img {
       width: 100%;
@@ -193,11 +240,12 @@
   </ul>
 </nav>
 
+<main>
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-logo">
-      <img id="Logo" src="Logo.png" alt="BAVARO Bistro" />
+      <img id="Logo" src="Logo.png" alt="BAVARO Bistro" fetchpriority="high" />
     </div>
     <h1 class="hero-tagline">Smaki, które <em>zostają</em><br/>w pamięci</h1>
     <p class="hero-sub">Bydgoszcz · Ugory 23</p>
@@ -238,9 +286,9 @@
 
     <!-- FEATURED -->
     <div class="featured-dishes reveal">
-      <div class="dish-card">
+      <div class="dish-card" data-tab="obiady" role="button" tabindex="0">
         <div class="dish-img-frame">
-          <img src="Schabowy.png" class="dish-img" style="--img-scale:1.05;">
+          <img src="Schabowy.png" class="dish-img" alt="Kotlet schabowy z frytkami i surówką" loading="lazy" style="--img-scale:1.05;">
         </div>
         <div class="dish-card-body">
           <div class="dish-card-name">Kotlet schabowy</div>
@@ -248,9 +296,9 @@
           <div class="dish-card-price">28,50 zł</div>
         </div>
       </div>
-      <div class="dish-card">
+      <div class="dish-card" data-tab="pizza" role="button" tabindex="0">
         <div class="dish-img-frame">
-          <img src="pepperoni2.png" class="dish-img" style="--img-scale:1.3;">
+          <img src="pepperoni2.png" class="dish-img" alt="Pizza nr 5 z salami i serem" loading="lazy" style="--img-scale:1.3;">
         </div>
         <div class="dish-card-body">
           <div class="dish-card-name">Pizza nr 5</div>
@@ -258,9 +306,9 @@
           <div class="dish-card-price">20,10 zł</div>
         </div>
       </div>
-      <div class="dish-card">
+      <div class="dish-card" data-tab="zupy" role="button" tabindex="0">
         <div class="dish-img-frame">
-          <img src="pierogi.png" class="dish-img" style="--img-scale:1.1;">
+          <img src="pierogi.png" class="dish-img" alt="Pierogi Zbójnickie, 10 sztuk" loading="lazy" style="--img-scale:1.1;">
         </div>
         <div class="dish-card-body">
           <div class="dish-card-name">Pierogi Zbójnickie</div>
@@ -268,9 +316,9 @@
           <div class="dish-card-price">19,90 zł</div>
         </div>
       </div>
-      <div class="dish-card">
+      <div class="dish-card" data-tab="zapiekanki" role="button" tabindex="0">
         <div class="dish-img-frame">
-          <img src="zapiekanka.png" class="dish-img" style="--img-scale:1.1;">
+          <img src="zapiekanka.png" class="dish-img" alt="Zapiekanka firmowa z szynką, pieczarkami i serem" loading="lazy" style="--img-scale:1.1;">
         </div>
         <div class="dish-card-body">
           <div class="dish-card-name">Zapiekanka firmowa</div>
@@ -293,7 +341,7 @@
 
     <!-- DANIA OBIADOWE -->
     <div class="menu-category active" id="tab-obiady">
-      <div class="menu-side-imgs side-left"><img src="Schabowy.png" alt="Kotlet schabowy"></div>
+      <div class="menu-side-imgs side-left"><img src="Schabowy.png" alt="Kotlet schabowy" loading="lazy"></div>
       <div class="menu-grid">
         <div class="menu-item">
           <div class="menu-item-left"><div class="item-name">Kotlet schabowy</div><div class="item-desc">frytki, surówka z białej kapusty</div></div>
@@ -328,7 +376,7 @@
 
     <!-- DLA DZIECI -->
     <div class="menu-category" id="tab-dzieci">
-      <div class="menu-side-imgs side-right"><img src="devolay.png" alt="Dla dzieci"></div>
+      <div class="menu-side-imgs side-right"><img src="devolay.png" alt="Dla dzieci" loading="lazy"></div>
       <div class="menu-grid">
         <div class="menu-item">
           <div class="menu-item-left"><div class="item-name">Cztery Nuggetsy z kurczaka z frytkami</div><div class="item-desc">dla dzieci</div></div>
@@ -343,7 +391,7 @@
 
     <!-- ZAPIEKANKI -->
     <div class="menu-category" id="tab-zapiekanki">
-      <div class="menu-side-imgs side-left"><img src="zapiekanka.png" alt="Zapiekanka"></div>
+      <div class="menu-side-imgs side-left"><img src="zapiekanka.png" alt="Zapiekanka" loading="lazy"></div>
       <div class="menu-grid">
         <div class="menu-item">
           <div class="menu-item-left"><div class="item-name">Klasyczna</div><div class="item-desc">bagietka, szynka, ser, sos</div></div>
@@ -374,7 +422,7 @@
 
     <!-- STRIPSY -->
     <div class="menu-category" id="tab-stripsy">
-      <div class="menu-side-imgs side-right"><img src="nuggetsy.png" alt="Stripsy z kurczaka"></div>
+      <div class="menu-side-imgs side-right"><img src="nuggetsy.png" alt="Stripsy z kurczaka" loading="lazy"></div>
       <div class="menu-grid">
         <div class="menu-item">
           <div class="menu-item-left"><div class="item-name">4 sztuki kurczaka</div><div class="item-desc">podawane z frytkami</div></div>
@@ -395,10 +443,10 @@
     <!-- ZUPY & PIEROGI -->
     <div class="menu-category" id="tab-zupy">
       <div class="menu-side-imgs side-left">
-        <img src="zurek.png" alt="Żurek">
-        <img src="flaczki.png" alt="Flaki">
+        <img src="zurek.png" alt="Żurek" loading="lazy">
+        <img src="flaczki.png" alt="Flaki" loading="lazy">
       </div>
-      <div class="menu-side-imgs side-right"><img src="pierogi.png" alt="Pierogi"></div>
+      <div class="menu-side-imgs side-right"><img src="pierogi.png" alt="Pierogi" loading="lazy"></div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem;">
         <div>
           <div class="pizza-section-header"><span class="pizza-section-label">Zupy</span></div>
@@ -432,7 +480,7 @@
     <!-- PIZZA -->
     <div class="menu-category" id="tab-pizza">
 
-      <div class="menu-side-imgs side-right"><img src="pizzaZOliwkami.png" alt="Pizza pepperoni"></div>
+      <div class="menu-side-imgs side-right"><img src="pizzaZOliwkami.png" alt="Pizza pepperoni" loading="lazy"></div>
       <div class="menu-intro-text">
         <div class="section-label">Nasza specjalność</div>
         <span class="pizza-section-label">Pizza na cienkim cieście</span>
@@ -517,7 +565,7 @@
 
     <!-- SOSY & DODATKI -->
     <div class="menu-category" id="tab-sosy">
-      <div class="menu-side-imgs side-left"><img src="sosy.png" alt="Sosy"></div>
+      <div class="menu-side-imgs side-left"><img src="sosy.png" alt="Sosy" loading="lazy"></div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem;">
         <div>
           <div class="pizza-section-header"><span class="pizza-section-label">Sosy</span></div>
@@ -575,6 +623,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="footer-logo">BAVARO</div>
@@ -597,6 +646,17 @@
       document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.dish-card[data-tab]').forEach(card => {
+    const goToTab = () => {
+      const tabBtn = document.querySelector('.tab-btn[data-tab="' + card.dataset.tab + '"]');
+      if (tabBtn) tabBtn.click();
+    };
+    card.addEventListener('click', goToTab);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToTab(); }
     });
   });
 </script>
