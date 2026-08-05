@@ -159,6 +159,7 @@
     .item-desc { font-size: 0.75rem; color: var(--mist); line-height: 1.5; }
     .item-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--warm); white-space: nowrap; font-weight: 400; }
     .item-vege { color: #5a9e5a; font-size: 0.7rem; margin-left: 0.3rem; }
+    .ingredient-base { color: var(--mist); }
 
     /* PIZZA SECTIONS */
     .pizza-section-header { display: flex; align-items: center; gap: 1.2rem; margin: 2.8rem 0 1.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--ash); }
@@ -659,6 +660,47 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToTab(); }
     });
   });
+
+  (function highlightPizzaIngredients() {
+    const items = document.querySelectorAll('#tab-pizza .item-name');
+
+    items.forEach(el => {
+      const clone = el.cloneNode(true);
+      const vege = clone.querySelector('.item-vege');
+      if (vege) vege.remove();
+      const raw = clone.textContent.trim();
+      const match = raw.match(/^(\d+\.\s*)(.*)$/);
+      const prefix = match ? match[1] : '';
+      const rest = match ? match[2] : raw;
+      const vegeHTML = vege ? ' ' + vege.outerHTML : '';
+
+      let ingredients = rest.split(',').map(s => s.trim()).filter(Boolean);
+
+      const takeFirst = (test) => {
+        const idx = ingredients.findIndex(test);
+        if (idx === -1) return null;
+        return ingredients.splice(idx, 1)[0];
+      };
+
+      const ciasto = takeFirst(ing => ing.toLowerCase() === 'ciasto');
+      const sos = takeFirst(ing => ing.toLowerCase().startsWith('sos'));
+      const ser = takeFirst(ing => ing.toLowerCase() === 'ser');
+
+      const base = [ciasto, sos, ser].filter(Boolean);
+      const ordered = [
+        ...base.map(ing => ({ ing, isBase: true })),
+        ...ingredients.map(ing => ({ ing, isBase: false }))
+      ];
+
+      const html = ordered.map(({ ing, isBase }, i) => {
+        const cls = isBase ? ' class="ingredient-base"' : '';
+        const sep = i < ordered.length - 1 ? ', ' : '';
+        return '<span' + cls + '>' + ing + '</span>' + sep;
+      }).join('');
+
+      el.innerHTML = prefix + html + vegeHTML;
+    });
+  })();
 </script>
 </body>
 </html>
