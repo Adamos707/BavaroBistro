@@ -97,7 +97,7 @@
     .divider { width: 40px; height: 1px; background: var(--warm); margin: 1.6rem 0 2.8rem; }
 
     /* ABOUT */
-    #about { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    #about { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; scroll-margin-top: 130px; }
     .about-text p { color: var(--mist); line-height: 1.9; font-size: 0.95rem; margin-bottom: 1rem; }
     .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .stat { border-left: 1px solid var(--ash); padding-left: 1.2rem; }
@@ -119,6 +119,28 @@
     .menu-header { text-align: center; margin-bottom: 4rem; }
     .menu-header .divider { margin: 1.6rem auto 0; }
     .menu-note { margin-top: 1.2rem; font-size: 0.78rem; color: var(--mist); letter-spacing: 0.08em; }
+    .order-online-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 2rem;
+      background: var(--warm);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1.1rem 3rem;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(201,169,110,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .order-online-btn:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(201,169,110,0.35); }
+    .order-online-icon { font-size: 1.2rem; }
+    @media (max-width: 500px) {
+      .order-online-btn { width: 100%; justify-content: center; padding: 1.1rem 1.5rem; font-size: 0.9rem; }
+    }
 
     /* FEATURED DISHES ROW */
     .featured-dishes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
@@ -139,9 +161,9 @@
     .dish-img-placeholder span { font-size: 2rem; }
     .dish-img-placeholder small { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
     .dish-card-body { padding: 1rem 1.2rem; }
-    .dish-card-name { font-size: 0.85rem; color: var(--white); font-weight: 400; margin-bottom: 0.2rem; }
-    .dish-card-desc { font-size: 0.72rem; color: var(--mist); line-height: 1.5; margin-bottom: 0.5rem; }
-    .dish-card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--warm); }
+    .dish-card-name { font-size: 1rem; color: var(--white); font-weight: 400; margin-bottom: 0.2rem; }
+    .dish-card-desc { font-size: 0.9rem; color: var(--mist); line-height: 1.5; margin-bottom: 0.5rem; }
+    .dish-card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--warm); }
 
     /* TABS */
     .menu-tabs { display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
@@ -155,11 +177,10 @@
     .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 1.15rem 1.2rem; border-bottom: 1px solid var(--stone); gap: 1rem; transition: background 0.2s; }
     .menu-item:hover { background: rgba(201,169,110,0.04); }
     .menu-item-left { flex: 1; }
-    .item-name { font-size: 0.9rem; color: var(--white); font-weight: 400; margin-bottom: 0.25rem; }
-    .item-desc { font-size: 0.75rem; color: var(--mist); line-height: 1.5; }
-    .item-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--warm); white-space: nowrap; font-weight: 400; }
+    .item-name { font-size: 1rem; color: var(--white); font-weight: 400; margin-bottom: 0.25rem; }
+    .item-desc { font-size: 0.9rem; color: var(--mist); line-height: 1.5; }
+    .item-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--warm); white-space: nowrap; font-weight: 400; }
     .item-vege { color: #5a9e5a; font-size: 0.7rem; margin-left: 0.3rem; }
-    .ingredient-base { color: var(--mist); }
 
     /* PIZZA SECTIONS */
     .pizza-section-header { display: flex; align-items: center; gap: 1.2rem; margin: 2.8rem 0 1.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--ash); }
@@ -168,6 +189,13 @@
 
     /* MENU NOTE SMALL */
     .menu-note-small { margin-top: 2rem; padding: 0.8rem 1.2rem; border-left: 1px solid var(--ash); font-size: 0.75rem; color: var(--mist); line-height: 1.7; }
+
+    /* PIZZA BASE NOTE */
+    .pizza-base-note { margin-bottom: 2.5rem; padding: 0.9rem 1.2rem; border-left: 2px solid var(--warm); background: rgba(201,169,110,0.06); font-size: 0.85rem; color: var(--mist); }
+    .pizza-base-note strong { color: var(--warm); font-weight: 500; }
+
+    /* MENU PLACEHOLDER */
+    .menu-placeholder { text-align: center; padding: 4rem 1rem; color: var(--mist); font-size: 0.95rem; font-style: italic; }
 
     /* MENU CATEGORY PHOTOS */
     .menu-category { position: relative; scroll-margin-top: 320px; }
@@ -283,6 +311,9 @@
       <h2 class="section-title">Menu</h2>
       <div class="divider"></div>
       <p class="menu-note">Dania obiadowe, zupy i pierogi dostępne w godzinach pracy kuchni: <strong style="color:var(--cream)">12:00–18:00</strong> &nbsp;·&nbsp; Pizza dostępna cały dzień</p>
+      <a href="https://www.pyszne.pl/menu/bavaro-bistro?shipping=pickup" class="order-online-btn" target="_blank" rel="noopener">
+        <span class="order-online-icon">🛍️</span> Zamów online z odbiorem
+      </a>
     </div>
 
     <!-- FEATURED -->
@@ -338,6 +369,8 @@
       <a href="#tab-zupy" class="tab-btn" data-tab="zupy">Zupy & Pierogi</a>
       <a href="#tab-pizza" class="tab-btn" data-tab="pizza">Pizza</a>
       <a href="#tab-sosy" class="tab-btn" data-tab="sosy">Sosy & Dodatki</a>
+      <a href="#tab-nowosci" class="tab-btn" data-tab="nowosci">Nowości</a>
+      <a href="#tab-promocje" class="tab-btn" data-tab="promocje">Promocje</a>
     </div>
 
     <!-- DANIA OBIADOWE -->
@@ -488,31 +521,33 @@
         <p>30 kombinacji smaków – od klasycznej margherity, przez warianty z kurczakiem, po ostre nowości. Pieczona na złoto, z chrupiącym brzegiem.</p>
       </div>
 
+      <div class="pizza-base-note">Każda pizza zawiera: <strong>ciasto, sos, ser</strong></div>
+
       <div class="pizza-section-header">
         <span class="pizza-section-label">Pizza Tradycyjna</span>
         <span class="pizza-size-badge">30 cm</span>
       </div>
       <div class="menu-grid">
         <div class="menu-item"><div class="menu-item-left"><div class="item-name">1. Ciasto, sos, ser <span class="item-vege">🌿</span></div></div><div class="item-price">17,30 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">2. Ciasto, sos, oregano, zioła prowansalskie, ser <span class="item-vege">🌿</span></div></div><div class="item-price">19,30 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">3. Ciasto, sos, pieczarki, ser <span class="item-vege">🌿</span></div></div><div class="item-price">19,80 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">4. Ciasto, sos, szynka, ser</div></div><div class="item-price">20,10 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">5. Ciasto, sos, salami, ser</div></div><div class="item-price">20,10 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">6. Ciasto, sos, boczek, cebula, ser</div></div><div class="item-price">20,60 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">7. Ciasto, sos, pieczarki, szynka, ser</div></div><div class="item-price">20,80 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">8. Ciasto, sos, pieczarki, szynka, cebula, ser</div></div><div class="item-price">21,10 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">9. Ciasto, sos, szynka, ananas, ser</div></div><div class="item-price">21,30 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">10. Ciasto, sos, pieczarki, kiełbasa, cebula, ser</div></div><div class="item-price">21,70 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">11. Ciasto, sos, boczek, cebula, ogórek konserwowy, ser</div></div><div class="item-price">21,80 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">12. Ciasto, sos, pieczarki, salami, ser</div></div><div class="item-price">22,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">13. Ciasto, sos, pieczarki, szynka, papryka peperoni, cebula, ser</div></div><div class="item-price">22,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">14. Ciasto, sos, pieczarki, tuńczyk, ser</div></div><div class="item-price">22,30 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">15. Ciasto, sos, salami, papryka peperoni, papryka, ser</div></div><div class="item-price">22,30 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">16. Ciasto, sos, szynka, tuńczyk, ser</div></div><div class="item-price">22,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">17. Ciasto, sos, pieczarki, szynka, papryka, por, ser</div></div><div class="item-price">22,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">18. Ciasto, sos, salami, ananas, ser</div></div><div class="item-price">22,90 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">19. Ciasto, sos, pieczarki, boczek, papryka, por, cebula, ser</div></div><div class="item-price">23,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">20. Ciasto, sos carbonara, boczek, cebula, ser</div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">2. Oregano, zioła prowansalskie <span class="item-vege">🌿</span></div></div><div class="item-price">19,30 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">3. Ciasto, sos, ser, pieczarki <span class="item-vege">🌿</span></div></div><div class="item-price">19,80 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">4. Ciasto, sos, ser, szynka</div></div><div class="item-price">20,10 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">5. Ciasto, sos, ser, salami</div></div><div class="item-price">20,10 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">6. Boczek, cebula</div></div><div class="item-price">20,60 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">7. Pieczarki, szynka</div></div><div class="item-price">20,80 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">8. Pieczarki, szynka, cebula</div></div><div class="item-price">21,10 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">9. Szynka, ananas</div></div><div class="item-price">21,30 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">10. Pieczarki, kiełbasa, cebula</div></div><div class="item-price">21,70 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">11. Boczek, cebula, ogórek konserwowy</div></div><div class="item-price">21,80 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">12. Pieczarki, salami</div></div><div class="item-price">22,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">13. Pieczarki, szynka, papryka peperoni, cebula</div></div><div class="item-price">22,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">14. Pieczarki, tuńczyk</div></div><div class="item-price">22,30 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">15. Salami, papryka peperoni, papryka</div></div><div class="item-price">22,30 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">16. Szynka, tuńczyk</div></div><div class="item-price">22,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">17. Pieczarki, szynka, papryka, por</div></div><div class="item-price">22,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">18. Salami, ananas</div></div><div class="item-price">22,90 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">19. Pieczarki, boczek, papryka, por, cebula</div></div><div class="item-price">23,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">20. Sos carbonara, boczek, cebula</div></div><div class="item-price">24,50 zł</div></div>
       </div>
 
       <div class="pizza-section-header" style="margin-top:3rem;">
@@ -520,13 +555,13 @@
         <span class="pizza-size-badge">30 cm</span>
       </div>
       <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">21. Ciasto, sos, pieczarki, kurczak, cebula, ser</div></div><div class="item-price">24,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">22. Ciasto, sos majonezowy, kurczak, cebula, ser</div></div><div class="item-price">24,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">23. Ciasto, sos, kurczak, ananas, kukurydza, ser</div></div><div class="item-price">25,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">24. Ciasto, sos BBQ, kurczak, cebula, kukurydza, ser</div></div><div class="item-price">25,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">25. Ciasto, sos, pieczarki, kurczak, peperoni, kukurydza, cebula, ser</div></div><div class="item-price">25,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">26. Ciasto, sos, kurczak, brokuły, sos holenderski, ser</div></div><div class="item-price">26,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">27. Ciasto, sos, kurczak, ananas, sos holenderski, ser</div></div><div class="item-price">26,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">21. Pieczarki, kurczak, cebula</div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">22. Sos majonezowy, kurczak, cebula</div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">23. Kurczak, ananas, kukurydza</div></div><div class="item-price">25,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">24. Sos BBQ, kurczak, cebula, kukurydza</div></div><div class="item-price">25,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">25. Pieczarki, kurczak, peperoni, kukurydza, cebula</div></div><div class="item-price">25,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">26. Kurczak, brokuły, sos holenderski</div></div><div class="item-price">26,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">27. Kurczak, ananas, sos holenderski</div></div><div class="item-price">26,00 zł</div></div>
       </div>
 
       <div class="pizza-section-header" style="margin-top:3rem;">
@@ -534,9 +569,9 @@
         <span class="pizza-size-badge">30 cm</span>
       </div>
       <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">28. Ciasto, sos Vi Fon, szynka, papryka peperoni, ser</div></div><div class="item-price">23,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">29. Ciasto, sos, boczek, salami, peperoni, cebula, tabasco, ser</div></div><div class="item-price">24,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">30. Ciasto, sos, boczek, jalapeño, kurczak, tabasco, ser</div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">28. Sos Vi Fon, szynka, papryka peperoni</div></div><div class="item-price">23,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">29. Boczek, salami, peperoni, cebula, tabasco</div></div><div class="item-price">24,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">30. Boczek, jalapeño, kurczak, tabasco</div></div><div class="item-price">24,50 zł</div></div>
       </div>
 
       <div class="pizza-section-header" style="margin-top:3rem;">
@@ -544,9 +579,9 @@
         <span class="pizza-size-badge">30 cm</span>
       </div>
       <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">31. Ciasto, sos, papryka, oliwki, kukurydza, cebula, ser</div></div><div class="item-price">23,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">32. Ciasto, sos, pieczarki, kukurydza, por, papryka, ser</div></div><div class="item-price">24,00 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">33. Ciasto, sos, pieczarki, pomidory, oliwki, cebula, ser</div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">31. Papryka, oliwki, kukurydza, cebula</div></div><div class="item-price">23,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">32. Pieczarki, kukurydza, por, papryka</div></div><div class="item-price">24,00 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">33. Pieczarki, pomidory, oliwki, cebula</div></div><div class="item-price">24,50 zł</div></div>
       </div>
 
       <div class="pizza-section-header" style="margin-top:3rem;">
@@ -554,11 +589,11 @@
         <span class="pizza-size-badge">30 cm</span>
       </div>
       <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">34. Ciasto, sos, pieczarki, ser <span class="item-vege">🌿</span></div></div><div class="item-price">24,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">35. Ciasto, sos, szynka, ser</div></div><div class="item-price">24,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">36. Ciasto, sos, pieczarki, szynka, ser</div></div><div class="item-price">25,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">37. Ciasto, sos, salami, boczek, cebula, ser</div></div><div class="item-price">25,50 zł</div></div>
-        <div class="menu-item"><div class="menu-item-left"><div class="item-name">38. Ciasto, sos, pieczarki, salami, papryka, cebula, ser</div></div><div class="item-price">25,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">34. Ciasto, sos, ser, pieczarki <span class="item-vege">🌿</span></div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">35. Ciasto, sos, ser, szynka</div></div><div class="item-price">24,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">36. Pieczarki, szynka</div></div><div class="item-price">25,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">37. Salami, boczek, cebula</div></div><div class="item-price">25,50 zł</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="item-name">38. Pieczarki, salami, papryka, cebula</div></div><div class="item-price">25,50 zł</div></div>
       </div>
 
       <div class="menu-note-small">Do pizzy na wynos należy doliczyć koszt kartonu: <strong style="color:var(--warm)">2,50 zł</strong></div>
@@ -583,6 +618,20 @@
           <div class="menu-item" style="border-bottom:1px solid var(--stone);"><div class="menu-item-left"><div class="item-name">4. Szynka, kiełbasa, pomidor, brokuły, ananas, jalapeño, sos tabasco</div></div><div class="item-price">4,10 zł</div></div>
           <div class="menu-item" style="border-bottom:1px solid var(--stone);"><div class="menu-item-left"><div class="item-name">5. Boczek, salami, mięso z kurczaka, tuńczyk, ser żółty, ser mozzarella, sos holenderski</div></div><div class="item-price">5,20 zł</div></div>
         </div>
+      </div>
+    </div>
+
+    <!-- NOWOŚCI -->
+    <div class="menu-category" id="tab-nowosci">
+      <div class="menu-placeholder">
+        <p>Wkrótce nowe pozycje w menu – zaglądaj tu regularnie!</p>
+      </div>
+    </div>
+
+    <!-- PROMOCJE -->
+    <div class="menu-category" id="tab-promocje">
+      <div class="menu-placeholder">
+        <p>Aktualnie brak promocji – śledź nas, by nie przegapić okazji!</p>
       </div>
     </div>
 
@@ -661,46 +710,6 @@
     });
   });
 
-  (function highlightPizzaIngredients() {
-    const items = document.querySelectorAll('#tab-pizza .item-name');
-
-    items.forEach(el => {
-      const clone = el.cloneNode(true);
-      const vege = clone.querySelector('.item-vege');
-      if (vege) vege.remove();
-      const raw = clone.textContent.trim();
-      const match = raw.match(/^(\d+\.\s*)(.*)$/);
-      const prefix = match ? match[1] : '';
-      const rest = match ? match[2] : raw;
-      const vegeHTML = vege ? ' ' + vege.outerHTML : '';
-
-      let ingredients = rest.split(',').map(s => s.trim()).filter(Boolean);
-
-      const takeFirst = (test) => {
-        const idx = ingredients.findIndex(test);
-        if (idx === -1) return null;
-        return ingredients.splice(idx, 1)[0];
-      };
-
-      const ciasto = takeFirst(ing => ing.toLowerCase() === 'ciasto');
-      const sos = takeFirst(ing => ing.toLowerCase().startsWith('sos'));
-      const ser = takeFirst(ing => ing.toLowerCase() === 'ser');
-
-      const base = [ciasto, sos, ser].filter(Boolean);
-      const ordered = [
-        ...base.map(ing => ({ ing, isBase: true })),
-        ...ingredients.map(ing => ({ ing, isBase: false }))
-      ];
-
-      const html = ordered.map(({ ing, isBase }, i) => {
-        const cls = isBase ? ' class="ingredient-base"' : '';
-        const sep = i < ordered.length - 1 ? ', ' : '';
-        return '<span' + cls + '>' + ing + '</span>' + sep;
-      }).join('');
-
-      el.innerHTML = prefix + html + vegeHTML;
-    });
-  })();
 </script>
 </body>
 </html>
